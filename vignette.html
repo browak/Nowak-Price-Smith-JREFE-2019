@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title>realEstateDictionaries</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#header {
+text-align: center;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">realEstateDictionaries</h1>
+
+
+
+<div id="loading-the-data" class="section level2">
+<h2>Loading the data</h2>
+<p>The <strong>listings</strong> data set includes 24,446 listings from Atlanta, GA. The data set includes the price, square footage of living space, and public remarks about the property.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(realEstateDictionaries)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">data</span>(listings)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">str</span>(listings)</a></code></pre></div>
+<pre><code>## 'data.frame':    24446 obs. of  3 variables:
+##  $ price  : num  106300 65000 255000 129900 180000 ...
+##  $ sqft   : int  1424 724 3040 1583 2571 2059 1379 1870 1870 2769 ...
+##  $ remarks: chr  &quot;RARE 4 BEDROOM HOME WITH FRESH PAINT IN &amp; OUT. NEW LIGHT CARPET AND VINYL PLUS DUAL PANE WINDOWS. TAXES ARE INV&quot;| __truncated__ &quot;********************HOUSE IS VACANT - ON LOCKBOX!!!!!!!************************* ************************OLDER &quot;| __truncated__ &quot;YOU'LL NEVER NEED MORE SPACE THAN THIS NEWER LIGHT &amp; NEUTRAL EXECUTIVE HOME ON OVER 1/4 ACRE WITH ULTRA SPACIOU&quot;| __truncated__ &quot;GREAT REMODEL WITH TONS OF FEATURES! KITCHEN REMODELED 3 YRS AGO ALONG WITH NEW HEAT/AC. ROOF 1 YR, WATERHEATER&quot;| __truncated__ ...</code></pre>
+</div>
+<div id="cleaning-the-text" class="section level2">
+<h2>Cleaning the Text</h2>
+<p>The <strong>cleanText</strong> function cleans the text by removing punctuation, numerical values, and stop words from the text. The raw text</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">text0 &lt;-<span class="st"> </span><span class="kw">head</span>(listings<span class="op">$</span>remarks , <span class="dt">n=</span><span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">text0</a></code></pre></div>
+<pre><code>## [1] &quot;RARE 4 BEDROOM HOME WITH FRESH PAINT IN &amp; OUT. NEW LIGHT CARPET AND VINYL PLUS DUAL PANE WINDOWS. TAXES ARE INVESTORS. SELLER HAS NEVER OCCUPIED HOME.&quot;                                                                                                                                                                                                                                                                                                                                    
+## [2] &quot;********************HOUSE IS VACANT - ON LOCKBOX!!!!!!!************************* ************************OLDER HOME ON A HUGE LOT!!****************************** **************************SOLD IN 'AS IS' CONDITION!****************************&quot;                                                                                                                                                                                                                                        
+## [3] &quot;YOU'LL NEVER NEED MORE SPACE THAN THIS NEWER LIGHT &amp; NEUTRAL EXECUTIVE HOME ON OVER 1/4 ACRE WITH ULTRA SPACIOUS ROOMS THRUOUT, THAT RARE 4 CAR GARAGE AND REAL R/V PARKING WITH CONCRETE SLAB FOR BOAT/RV AND EVEN A SPORT COURT FOR THE KIDS! 16' LIGHT STONE TILE IN ENTRY, KITCHEN, LNDRY &amp; DOWNSTAIRS BATH, 5TH BED IS DEN/ OFFICE WITH BUILT-IN CABINETRY, WOOD BLINDS, WOOD WINDOW SILLS, STEREO &amp; SURROUND PRE-WIRE, CENTRAL AUDIO PRE-WIRE, GARAGE SPEAKERS, EXTENDED BACK PATIO,&quot;</code></pre>
+<p>The cleaned text</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">text1 &lt;-<span class="st"> </span><span class="kw">cleanText</span>(text0)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">text1</a></code></pre></div>
+<pre><code>## [1] &quot;rare bedroom home fresh paint new light carpet vinyl plus dual pane windows taxes investors seller never occupied home&quot;                                                                                                                                                                                                                                                    
+## [2] &quot;house vacant lockbox older home huge lot sold condition&quot;                                                                                                                                                                                                                                                                                                                   
+## [3] &quot;ll never need space newer light neutral executive home acre ultra spacious rooms thruout rare car garage real parking concrete slab boat rv even sport court kids light stone tile entry kitchen lndry downstairs bath th bed den office built cabinetry wood blinds wood window sills stereo surround pre wire central audio pre wire garage speakers extended back patio&quot;</code></pre>
+<p>Other options are available in the options of <strong>cleanText</strong></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">text2 &lt;-<span class="st"> </span><span class="kw">cleanText</span>(text0 , <span class="dt">removeStopWords =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">text2</a></code></pre></div>
+<pre><code>## [1] &quot;rare bedroom home with fresh paint in out new light carpet and vinyl plus dual pane windows taxes are investors seller has never occupied home&quot;                                                                                                                                                                                                                                                                                                        
+## [2] &quot;house is vacant on lockbox older home on huge lot sold in as is condition&quot;                                                                                                                                                                                                                                                                                                                                                                             
+## [3] &quot;you ll never need more space than this newer light neutral executive home on over acre with ultra spacious rooms thruout that rare car garage and real parking with concrete slab for boat rv and even sport court for the kids light stone tile in entry kitchen lndry downstairs bath th bed is den office with built in cabinetry wood blinds wood window sills stereo surround pre wire central audio pre wire garage speakers extended back patio&quot;</code></pre>
+</div>
+<div id="creating-a-token-matrix" class="section level2">
+<h2>Creating a Token Matrix</h2>
+<p>You can also create a matrix <span class="math inline">\(M\)</span> of indicator variables for the <span class="math inline">\(n\)</span>-gram tokens. A token is a sequence of <span class="math inline">\(n\)</span> consecutive phrases. The <span class="math inline">\(n=1\)</span> or unigram corresponds to single words. The <span class="math inline">\(n=2\)</span> or bigram corresponds to two-word phrases. <strong>tokenMatrixMaker</strong> can handle up to <span class="math inline">\(n=3\)</span> or trigrams. You can specify <span class="math inline">\(n\)</span> using <strong>GRAM</strong>. The default is 1-grams.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">M1 &lt;-<span class="st"> </span><span class="kw">tokenMatrixMaker</span>(text1)</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">head</span>(M1)</a></code></pre></div>
+<pre><code>## 3 x 73 sparse Matrix of class &quot;ngCMatrix&quot;
+##                                                                           
+## [1,] | | | | | | | | | | | | | | | | | | . . . . . . . . . . . . . . . . .
+## [2,] | . . . . . . . . . . . . . . . . . | | | | | | | | . . . . . . . . .
+## [3,] | | | | . . . . . . . . . . . . . . . . . . . . . . | | | | | | | | |
+##                                                                           
+## [1,] . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+## [2,] . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+## [3,] | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+##           
+## [1,] . . .
+## [2,] . . .
+## [3,] | | |</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">colnames</span>(M1)</a></code></pre></div>
+<pre><code>##  [1] &quot;home&quot;       &quot;light&quot;      &quot;never&quot;      &quot;rare&quot;       &quot;bedroom&quot;   
+##  [6] &quot;carpet&quot;     &quot;dual&quot;       &quot;fresh&quot;      &quot;investors&quot;  &quot;new&quot;       
+## [11] &quot;occupied&quot;   &quot;paint&quot;      &quot;pane&quot;       &quot;plus&quot;       &quot;seller&quot;    
+## [16] &quot;taxes&quot;      &quot;vinyl&quot;      &quot;windows&quot;    &quot;condition&quot;  &quot;house&quot;     
+## [21] &quot;huge&quot;       &quot;lockbox&quot;    &quot;lot&quot;        &quot;older&quot;      &quot;sold&quot;      
+## [26] &quot;vacant&quot;     &quot;acre&quot;       &quot;audio&quot;      &quot;back&quot;       &quot;bath&quot;      
+## [31] &quot;bed&quot;        &quot;blinds&quot;     &quot;boat&quot;       &quot;built&quot;      &quot;cabinetry&quot; 
+## [36] &quot;car&quot;        &quot;central&quot;    &quot;concrete&quot;   &quot;court&quot;      &quot;den&quot;       
+## [41] &quot;downstairs&quot; &quot;entry&quot;      &quot;even&quot;       &quot;executive&quot;  &quot;extended&quot;  
+## [46] &quot;garage&quot;     &quot;kids&quot;       &quot;kitchen&quot;    &quot;lndry&quot;      &quot;need&quot;      
+## [51] &quot;neutral&quot;    &quot;newer&quot;      &quot;office&quot;     &quot;parking&quot;    &quot;patio&quot;     
+## [56] &quot;pre&quot;        &quot;real&quot;       &quot;rooms&quot;      &quot;sills&quot;      &quot;slab&quot;      
+## [61] &quot;space&quot;      &quot;spacious&quot;   &quot;speakers&quot;   &quot;sport&quot;      &quot;stereo&quot;    
+## [66] &quot;stone&quot;      &quot;surround&quot;   &quot;thruout&quot;    &quot;tile&quot;       &quot;ultra&quot;     
+## [71] &quot;window&quot;     &quot;wire&quot;       &quot;wood&quot;</code></pre>
+<p>The columns of <span class="math inline">\(M\)</span> are sorted from most frequent token to least frequent token. You can specify how many columns (<span class="math inline">\(K\)</span>) to keep in <span class="math inline">\(M\)</span> using <strong>KTOKEN</strong>. The default is <span class="math inline">\(K=500\)</span>.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">M1 &lt;-<span class="st"> </span><span class="kw">tokenMatrixMaker</span>(text1 , <span class="dt">GRAM=</span><span class="dv">2</span> , <span class="dt">KTOKEN=</span><span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="kw">head</span>(M1)</a></code></pre></div>
+<pre><code>## 3 x 10 sparse Matrix of class &quot;ngCMatrix&quot;
+##                         
+## [1,] | | | | | | | | | |
+## [2,] . . . . . . . . . .
+## [3,] . . . . . . . . . .</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">colnames</span>(M1)</a></code></pre></div>
+<pre><code>##  [1] &quot;bedroom-home&quot;     &quot;carpet-vinyl&quot;     &quot;dual-pane&quot;       
+##  [4] &quot;fresh-paint&quot;      &quot;home-fresh&quot;       &quot;investors-seller&quot;
+##  [7] &quot;light-carpet&quot;     &quot;never-occupied&quot;   &quot;new-light&quot;       
+## [10] &quot;occupied-home&quot;</code></pre>
+</div>
+<div id="identifying-the-dictionary" class="section level2">
+<h2>Identifying the Dictionary</h2>
+<p>You can identify a dictionary <span class="math inline">\(S \subseteq \{1,...,K \}\)</span> using LASSO methods. You can also include other explanatory variables alongisde the tokens (square footage, age, date of sale, etc.).</p>
+<p>An example</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">X &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">cbind</span>(listings<span class="op">$</span>sqft,listings<span class="op">$</span>sqft<span class="op">**</span><span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">text0 &lt;-<span class="st"> </span>listings<span class="op">$</span>remarks</a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">text1 &lt;-<span class="st"> </span><span class="kw">cleanText</span>(text0)</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">M &lt;-<span class="st"> </span><span class="kw">tokenMatrixMaker</span>(text1 , <span class="dt">GRAM=</span><span class="dv">1</span> , <span class="dt">KTOKEN=</span><span class="dv">500</span>)</a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">y &lt;-<span class="st"> </span><span class="kw">log</span>(listings<span class="op">$</span>price)</a>
+<a class="sourceLine" id="cb17-6" data-line-number="6">fit &lt;-<span class="st"> </span><span class="kw">lassoPostLasso</span>(X,M,y)</a></code></pre></div>
+<p><strong>lassoPostLasso</strong> includes prediction information</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">fit<span class="op">$</span>predictionInformation</a></code></pre></div>
+<pre><code>##       N   K Q_min Q_het rmse_baseline  rmse_min  rmse_het mae_baseline
+## 1 24446 500   180   106     0.2822435 0.2430242 0.2469402     0.186479
+##     mae_min   mae_het
+## 1 0.1528359 0.1558884</code></pre>
+<p><strong>fit</strong> includes the tokens selected by both LASSO procedures</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">head</span>(fit<span class="op">$</span>cvDictionary)</a></code></pre></div>
+<pre><code>##        token estimate
+## 1       acre    0.091
+## 2      added   -0.008
+## 3 appliances    0.014
+## 4    arizona   -0.026
+## 5   backyard    0.007
+## 6    balcony   -0.049</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">head</span>(fit<span class="op">$</span>hetDictionary)</a></code></pre></div>
+<pre><code>##        token estimate
+## 1       acre    0.105
+## 2 appliances    0.024
+## 3        bbq    0.043
+## 4       best    0.047
+## 5        big   -0.030
+## 6      block   -0.032</code></pre>
+<p><strong>fit</strong> includes the predicted values for both LASSO procedures</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">head</span>(fit<span class="op">$</span>fittedValues)</a></code></pre></div>
+<pre><code>##   original hetFitted cvFitted
+## 1 11.57402  11.63285 11.61822
+## 2 11.08214  11.23268 11.20849
+## 3 12.44902  12.56801 12.63996
+## 4 11.77452  11.49771 11.46436
+## 5 12.10071  12.44141 12.42522
+## 6 12.01370  12.07475 12.02610</code></pre>
+</div>
+<div id="realestatedictionary" class="section level2">
+<h2>realEstateDictionary</h2>
+<p>The function <strong>realEstateDictionary</strong> is a wrapper for the above procedures. Simply provide i) a data frame, ii) columns to use in the <span class="math inline">\(X\)</span> matrix, iii) the name of the column that contains the text, iv) the name of the column that includes the dependent variable</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">listings<span class="op">$</span>sqft2 &lt;-<span class="st"> </span>listings<span class="op">$</span>sqft<span class="op">**</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb26-2" data-line-number="2">listings<span class="op">$</span>logprice &lt;-<span class="st"> </span><span class="kw">log</span>(listings<span class="op">$</span>price)</a>
+<a class="sourceLine" id="cb26-3" data-line-number="3">fitWrapper &lt;-<span class="st"> </span><span class="kw">realEstateDictionary</span>(<span class="dt">XVARS=</span><span class="kw">c</span>(<span class="st">&quot;sqft&quot;</span>,<span class="st">&quot;sqft2&quot;</span>),</a>
+<a class="sourceLine" id="cb26-4" data-line-number="4">                        <span class="dt">TEXTVAR=</span><span class="st">&quot;remarks&quot;</span>,</a>
+<a class="sourceLine" id="cb26-5" data-line-number="5">                        <span class="dt">YVAR=</span><span class="st">&quot;logprice&quot;</span>,</a>
+<a class="sourceLine" id="cb26-6" data-line-number="6">                        <span class="dt">DATA=</span>listings)</a>
+<a class="sourceLine" id="cb26-7" data-line-number="7"><span class="kw">head</span>(fitWrapper<span class="op">$</span>hetDictionary)</a></code></pre></div>
+<pre><code>##        token estimate
+## 1       acre    0.105
+## 2 appliances    0.024
+## 3        bbq    0.043
+## 4       best    0.047
+## 5        big   -0.030
+## 6      block   -0.032</code></pre>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

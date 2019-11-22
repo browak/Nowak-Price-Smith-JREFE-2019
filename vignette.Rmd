@@ -1,0 +1,103 @@
+---
+title: "realEstateDictionaries"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{realEstateDictionaries}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Loading the data
+The **listings** data set includes 24,446 listings from Atlanta, GA.  The data set includes the price, square footage of living space, and public remarks about the property.
+
+```{r realEstateDictionaries}
+library(realEstateDictionaries)
+data(listings)
+str(listings)
+```
+
+## Cleaning the Text
+The **cleanText** function cleans the text by removing punctuation, numerical values, and stop words from the text.  The raw text
+
+```{r message=FALSE, warning=FALSE}
+text0 <- head(listings$remarks , n=3)
+text0
+```
+
+The cleaned text
+
+```{r message=FALSE, warning=FALSE}
+text1 <- cleanText(text0)
+text1
+```
+
+Other options are available in the options of **cleanText**
+
+```{r message=FALSE, warning=FALSE}
+text2 <- cleanText(text0 , removeStopWords = FALSE)
+text2
+```
+
+## Creating a Token Matrix
+You can also create a matrix $M$ of indicator variables for the $n$-gram tokens.  A token is a sequence of $n$ consecutive phrases.  The $n=1$ or unigram corresponds to single words.  The $n=2$ or bigram corresponds to two-word phrases.  **tokenMatrixMaker** can handle up to $n=3$ or trigrams.  You can specify $n$ using **GRAM**. The default is 1-grams.  
+
+```{r message=FALSE, warning=FALSE}
+M1 <- tokenMatrixMaker(text1)
+head(M1)
+colnames(M1)
+```
+
+The columns of $M$ are sorted from most frequent token to least frequent token.  You can specify how many columns ($K$) to keep in $M$ using **KTOKEN**.  The default is $K=500$.
+
+```{r message=FALSE, warning=FALSE}
+M1 <- tokenMatrixMaker(text1 , GRAM=2 , KTOKEN=10)
+head(M1)
+colnames(M1)
+```
+
+## Identifying the Dictionary
+You can identify a dictionary $S \subseteq \{1,...,K \}$ using LASSO methods.  You can also include other explanatory variables alongisde the tokens (square footage, age, date of sale, etc.).
+
+An example
+```{r message=FALSE, warning=FALSE}
+X <- as.matrix(cbind(listings$sqft,listings$sqft**2))
+text0 <- listings$remarks
+text1 <- cleanText(text0)
+M <- tokenMatrixMaker(text1 , GRAM=1 , KTOKEN=500)
+y <- log(listings$price)
+fit <- lassoPostLasso(X,M,y)
+```
+
+**lassoPostLasso** includes prediction information
+```{r}
+fit$predictionInformation
+```
+
+**fit** includes the tokens selected by both LASSO procedures
+```{r}
+head(fit$cvDictionary)
+head(fit$hetDictionary)
+```
+
+**fit** includes the predicted values for both LASSO procedures
+```{r}
+head(fit$fittedValues)
+```
+
+## realEstateDictionary
+The function **realEstateDictionary** is a wrapper for the above procedures.  Simply provide i) a data frame, ii) columns to use in the $X$ matrix, iii) the name of the column that contains the text, iv) the name of the column that includes the dependent variable
+```{r}
+listings$sqft2 <- listings$sqft**2
+listings$logprice <- log(listings$price)
+fitWrapper <- realEstateDictionary(XVARS=c("sqft","sqft2"),
+                        TEXTVAR="remarks",
+                        YVAR="logprice",
+                        DATA=listings)
+head(fitWrapper$hetDictionary)
+```
+
+
